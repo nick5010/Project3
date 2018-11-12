@@ -1,0 +1,87 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+.container {
+  height: 100%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+#mainRow {
+  height: 100%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+.mainDiv {
+  height: 98%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+#sideBar {
+  height: 100%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+.groupMessageDiv {
+  height: 7%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+.directMessageDiv {
+  height: 7%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+#newConvoBttn {
+  padding: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+#headerBar {
+  height: 10%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+#rightHeader {
+  height: 10%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+  position: relative;
+}
+.rightHeaderSec {
+  height: 100%;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+}
+/* Message Content */
+.mockChatLog {
+}
+.secondaryRow {
+  margin-left: 20px;
+}
+.profilePic {
+}
+.messageContent {
+}
+.translateThisBtn {
+}
+.saveMsgBtn {
+}
+.replyMsgBtn {
+}
