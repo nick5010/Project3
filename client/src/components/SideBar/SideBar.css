@@ -1,0 +1,50 @@
+
+  #sideBar {
+    height: 100%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+  }
+  .groupMessageDiv {
+    height: 9%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+    padding: 9%;
+  }
+  .directMessageDiv {
+    height: 9%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+    padding: 9%;
+   
+  }
+  #newConvoBttn {
+    padding: 5px;
+   
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+  }
+  #mainRow {
+    
+    width: 15%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+    text-align: center;
+    position: fixed;
+    overflow-y: auto;
+  }
+.groupMessages {
+background-color: teal;
+color: white;
+margin: 0;
+}
+.directMessages {
+  background-color: teal;
+  color: white;
+  margin-bottom: 0;
+ 
+}
