@@ -1,0 +1,33 @@
+.MessageInput {
+  margin-left: 15%;
+  background-color: teal;
+  bottom: 0;
+}
+.secondaryRow2{
+   padding-top: 1%;
+    bottom: 0;
+}
+.messageContent {
+    width: 20%;
+    bottom: 0;
+    
+}
+.sendBtn {
+    font-size: 220%;
+    width: 70%;
+    margin-left: 10%;
+    margin-bottom: 0;
+}
+.translateBtn {
+    margin-left: 10%;
+    margin-bottom: 1%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 85%;
+    height: 14%
+}
+.col .row { 
+    margin-left: 0;
+}

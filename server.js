@@ -4,12 +4,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./models")
 
-//sync with our database currently called "conversed_development"
-db.sequelize.sync().then(function(){
-  app.listen(PORT, function(){
-    console.log("Listening on port %s", PORT)
-  })
-})
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -22,6 +16,10 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
-});
+
+// sync with our database currently called "conversed_development"
+db.sequelize.sync().then(function(){
+  app.listen(PORT, function(){
+    console.log("Listening on port %s", PORT)
+  })
+})

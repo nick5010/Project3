@@ -1,6 +1,7 @@
 html {
   width: 100%;
   height: 100%;
+  
 }
 body {
   height: 100%;
@@ -70,12 +71,12 @@ body {
   border-width: 1px;
 }
 /* Message Content */
-.mockChatLog {
-}
+/* .mockChatLog {
+} */
 .secondaryRow {
   margin-left: 20px;
 }
-.profilePic {
+/* .profilePic {
 }
 .messageContent {
 }
@@ -84,4 +85,4 @@ body {
 .saveMsgBtn {
 }
 .replyMsgBtn {
-}
+} */
