@@ -8,19 +8,19 @@ const SideBar = () => (
       <div className="groupMessageDiv">Channel 1</div>
       <div className="groupMessageDiv">Channel 2</div>
       <div className="groupMessageDiv">Channel 3</div>
-      <div className="groupMessageDiv">Channel 4</div>
-      <div className="groupMessageDiv">Channel 5</div>
+      
 
       <h5 className="directMessages">Direct Messages</h5>
 
       <div className="directMessageDiv">Jeremy Shults</div>
       <div className="directMessageDiv">Jacob Broughton </div>
-      <div className="directMessageDiv">Oprah Winfrey SUCKS!</div>
+      <div className="directMessageDiv">Oprah Winfrey</div>
       <div className="directMessageDiv">Dwayne Johnson</div>
       <div className="directMessageDiv">Jake Gyllenhall</div>
-      <button className="card 3" id="newConvoBttn">
-        Start a New Conversation!
-      </button>
+      
+  <button className="btn waves-effect waves-light newConvoBtn" type="submit" name="action">Start A New Conversation
+  
+  </button>
     </div>
   </div>
 );
