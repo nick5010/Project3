@@ -5,7 +5,7 @@
 }
 .secondaryRow2{
    padding-top: 1%;
-    bottom: 0;
+   
 }
 .messageContent {
     width: 20%;
@@ -14,13 +14,14 @@
 }
 .sendBtn {
     font-size: 220%;
-    width: 70%;
+    width: 75%;
     margin-left: 10%;
     margin-bottom: 0;
 }
 .translateBtn {
     margin-left: 10%;
     margin-bottom: 1%;
+    width: 75%;
 }
 #footer {
     position: fixed;
