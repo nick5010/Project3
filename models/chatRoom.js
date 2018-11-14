@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var Messages = sequelize.define("Messages", {
+    var ChatRoom = sequelize.define("ChatRoom", {
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes){
               }
         }
     })
-    return Messages;
+    return ChatRoom;
 }

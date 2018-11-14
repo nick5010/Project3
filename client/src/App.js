@@ -12,6 +12,7 @@ class App extends Component {
         <SideBar />
         <NavBar />
         <MessageInput />
+        
         </div>
         );
   }
