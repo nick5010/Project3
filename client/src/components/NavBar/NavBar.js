@@ -6,7 +6,8 @@ const NavBar = () => (
       <nav className="nav-extended teal header">
         <div className="nav-wrapper">
         <span className="settings">⚙️</span>
-            <p className="comet">Comet</p> 
+        <img src="../../../images/comet-48-120871.png"/>
+            <span className="comet">Comet</span> 
           <p className="shortMsg">A corporate messaging app</p>
           
         </div>
