@@ -1,26 +1,33 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import "./App.css";
+import NavBar from "./components/NavBar";
 
-import "./App.css";
-import SideBar from "./components/SideBar"
-import NavBar from "./components/NavBar"
-import MessageInput from "./components/MessageInput"
-import ChatLog from "./components/ChatLog"
-import Wrapper from "./components/Wrapper"
+import Wrapper from "./components/Wrapper";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import MainPage from "./components/MainPage";
 
+class App extends React.Component {
+  state = {
+    userMessages: [],
+    groupMessages: []
+  };
 
-class App extends Component {
   render() {
     return (
-      <div>
-
-        <Wrapper>
-        <SideBar />
-        <NavBar />
-        <MessageInput />
-        <ChatLog />
-        </Wrapper>
+      <Router>
+        <div>
+          
+          <Wrapper>
+            <NavBar />
+            <Route exact path="/signUp" component={SignUp} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/home" component={MainPage} />
+          </Wrapper>
         </div>
-        );
+      </Router>
+    );
   }
 }
 
