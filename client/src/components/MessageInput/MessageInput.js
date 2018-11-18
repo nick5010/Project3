@@ -15,7 +15,7 @@ const MessageInput = () => (
         </div>
         <div className="row col s2 m2 l2">
             
-                <button className="btn waves-effect waves-light translateBtn">Translate Text</button>
+                
             
            
                 <button className="btn waves-effect waves-light sendBtn">Send</button>

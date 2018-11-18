@@ -7,10 +7,16 @@ const ChatLog = () => (
     <div className="card-body">
       
       <p className="card-text">
-      Gangster i saw beyonces tizzles and my pizzle went crizzle urna ut nisl. Shizzle my nizzle crocodizzle quizzle arcu. Maecenas dizzle, yippiyo boofron shizzle my nizzle crocodizzle things, nulla purizzle euismizzle you son of a bizzle, izzle luctus for sure izzle stuff. Vivamus ullamcorper, tortor et varizzle crunk, nibh shizzlin dizzle ultricies turpis, izzle break yo neck, yall leo cool check it out dolizzle. Maurizzle yo, mammasay mammasa mamma oo sa vizzle volutpat yo mamma, sizzle brizzle luctizzle nisi, at bibendum fo shizzle mofo ut nisl. Nullizzle velizzle ac mofo away viverra. Daahng dawg nizzle gangster. Fo shizzle my nizzle shizznit velizzle boofron pede da bomb ma nizzle. Maecenas sapien nulla, iaculis vel, for sure sizzle, egestizzle ghetto, eros. Its fo rizzle vitae turpizzle quizzle shizzlin dizzle bibendizzle fo shizzle my nizzle. Nizzle pulvinar consectetizzle shizzlin dizzle. Aliquizzle gangster volutpizzle. Nunc daahng dawg leo izzle lectus pretizzle faucibus. Cras nizzle lacus sed dui condimentizzle for sure. Ut nisl. Go to hizzle izzle urna. Integizzle uhuh ... yih! yippiyo stuff mi. Donec at turpizzle.
+      Marge, it takes two to lie. One to lie and one to listen. I didn't get rich by signing checks. That's why I love elementary school, Edna. The children believe anything you tell them. Me fail English? That's unpossible.
+
+Yes! I am a citizen! Now which way to the welfare office? I'm kidding, I'm kidding. I work, I work. Well, he's kind of had it in for me ever since I accidentally ran over his dog. Actually, replace "accidentally" with "repeatedly" and replace "dog" with "son."
+
+When I held that gun in my hand, I felt a surge of power…like God must feel when he's holding a gun. They only come out in the night. Or in this case, the day. What good is money if it can't inspire terror in your fellow man?
+
       </p>
       
     </div>
+    <button className="btn waves-effect waves-light translateBtn">Translate Text</button>
   </div>
 );
 

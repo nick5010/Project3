@@ -43,13 +43,33 @@
 }
 
 .newConvoBtn {
-  margin-top: 0%;
-  margin-bottom: 5%;
+  margin: 0% 1% 5% 1%;
   border-style: solid;
   border-color: teal;
   border-width: 1px;
   height: 5%;
-  padding-bottom: 5%;
-  padding-top: 5%;
+  width: 48%;
+  padding-left: 2%;
+}
+
+.modalStartMsg {
+  margin-left: 51%;
+}
+
+.usernameInput {
+  overflow: auto;
+}
+
+.modalDrop {
+  width: 60%;
+  margin-left: 20%;
+}
+.modal{
   text-align: center;
+  width: 40%;
+}
+.messageIcon {
+  width: 140%;
+  padding-top: 26%;
+  padding-left: 10%;
 }
