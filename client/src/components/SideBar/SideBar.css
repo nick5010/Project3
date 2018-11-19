@@ -12,11 +12,11 @@
   padding: 9%;
 }
 .directMessageDiv {
-  height: 9%;
+  /* height: 9%; */
   border-style: solid;
   border-color: teal;
   border-width: 1px;
-  padding: 9%;
+  padding: 0;
 }
 
 #mainRow {
