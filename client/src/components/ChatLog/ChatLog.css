@@ -1,13 +1,20 @@
 .chatLog{
   width: 83%;
  margin-left: 16%;
- height: 25em;
+ height: 61%;
  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
  overflow: auto;
+ padding-left: 2%;
+ padding-right: 2%;
 }
 .card-text{
     padding-left: 3%;
     padding-right: 3%;
     font-size: 100%;
    
+}
+.translateBtn {
+    margin-left: 10%;
+    margin-bottom: 1%;
+    width: 75%;
 }

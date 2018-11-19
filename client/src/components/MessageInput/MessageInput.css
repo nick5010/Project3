@@ -17,12 +17,10 @@
     width: 75%;
     margin-left: 10%;
     margin-bottom: 0;
+    padding-left: 7%;
 }
-.translateBtn {
-    margin-left: 10%;
-    margin-bottom: 1%;
-    width: 75%;
-}
+
+
 #footer {
     position: fixed;
     bottom: 0;
