@@ -3,9 +3,10 @@ import SideBar from "../SideBar";
 import MessageInput from "../MessageInput";
 import ChatLog from "../ChatLog";
 import NavBar from "../NavBar";
+import "./MainPage.css";
 
 const MainPage = () => (
-  <div>
+  <div id="mainPageDiv">
     <SideBar />
     <NavBar />
     <MessageInput />
@@ -14,6 +15,5 @@ const MainPage = () => (
 );
 
 export default MainPage;
-
 
 //main page AKA "/home"

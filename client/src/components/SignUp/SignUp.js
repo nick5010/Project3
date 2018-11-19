@@ -56,13 +56,13 @@ class SignUp extends React.Component {
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="passwordSignUp" type="password" name="password" value={this.state.password} type="text" conChange={this.handleInputChange} lass="validate" />
+                                <input id="passwordSignUp" type="password" name="password" value={this.state.password} conChange={this.handleInputChange} lass="validate" />
                                 <label for="passwordSignUp">Password</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="emailSignUp" type="email" type="text" name="email" value={this.state.email} onChange={this.handleInputChange} class="validate" />
+                                <input id="emailSignUp" type="text" name="email" value={this.state.email} onChange={this.handleInputChange} class="validate" />
                                 <label for="emailSignUp">Email</label>
                             </div>
                         </div>

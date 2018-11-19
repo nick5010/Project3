@@ -8,7 +8,7 @@ class DirectMessage extends React.Component {
   }
 
   render() {
-    return <div>John Smith</div>;
+    return <div>{this.state.directMessageLoaded}</div>;
   }
 }
 

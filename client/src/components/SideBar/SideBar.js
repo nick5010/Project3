@@ -2,16 +2,18 @@ import React from "react";
 import "./SideBar.css";
 import { Modal, Button, Input } from "react-materialize";
 import DirectMessage from "../DirectMessage";
+
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       nameList: ["Bob", "Mark", "Steve", "Jack", "Bill", "Rick"],
       user: "",
       directMessageLoaded: true
     };
   }
-  createChannel = id => {};
+  // createChannel = id => {};
 
   render() {
     return (
@@ -51,7 +53,7 @@ class SideBar extends React.Component {
             </Input>
             <button
               className="btn waves-effect waves-light modalStartMsg"
-              onClick={"???"}
+              // onClick={}
               type="submit"
             >
               Start Message
