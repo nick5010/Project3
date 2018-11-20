@@ -9,26 +9,32 @@ class SideBar extends React.Component {
 
     this.state = {
       nameList: ["Bob", "Mark", "Steve", "Jack", "Bill", "Rick", "Some-Guy"],
-      user: [],
+      users: [],
+      chosenUser: null,
       directMessageLoaded: true,
-      updateUserChat: false
     };
   }
-  setDirectMessage = id => {
+ 
+  handleDropdownChange = event => {
     console.log("----new console log----");
-    const value = id.target.value;
-    console.log(value);
-    if (!this.state.user.includes(value)) {
-      this.setState({
-        user: [...this.state.user, value]
-      });
-    }
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    });
   };
 
-  chatToggle = () => {
-    this.setState({
-      updateUserChat: true
-    })
+  handleStartMessage = () => {
+    const { chosenUser } = this.state;
+    if (!chosenUser) {
+      return console.log("No user chosen.");
+    }
+
+    if (!this.state.users.includes(chosenUser)) {
+      this.setState({
+        users: [...this.state.users, chosenUser]
+      });
+    }
   }
 
   render() {
@@ -60,9 +66,10 @@ class SideBar extends React.Component {
           >
             {" "}
             <Input
+            name="chosenUser"
               s={12}
               type="select"
-              onChange={this.setDirectMessage}
+              onChange={this.handleDropdownChange}
               className="modalDrop"
             >
               {this.state.nameList.length
@@ -74,7 +81,7 @@ class SideBar extends React.Component {
                 : "Nope"}
             </Input>
             <button
-              onClick={this.chatToggle}
+              onClick={this.handleStartMessage}
               className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
             >
               Start Message
@@ -87,13 +94,12 @@ class SideBar extends React.Component {
           <div className="groupMessageDiv">Channel 3</div>
           <h5 className="directMessages">Direct Messages</h5>
 
-          <div className="directMessageDiv">
-          {console.log(this.state.updateUserChat)}
-            {this.state.directMessageLoaded && this.state.updateUserChat
-              ? this.state.user.length
-                ? this.state.user.map((dmUser, index) => (
-                    <DirectMessage key={dmUser} user={dmUser} />
-                  ))
+           <div className="directMessageDiv">
+            {this.state.directMessageLoaded
+              ? this.state.users.length
+                ? this.state.users.map((dmUser, index) => (
+                  <DirectMessage key={dmUser} user={dmUser} />
+                ))
                 : null
               : null}
           </div>

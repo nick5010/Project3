@@ -2,20 +2,31 @@
   margin-left: 16%;
   width: 83%;
   height: 150%;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .comet {
-    font-size: 300%;
-    margin-top: auto;
-    margin-bottom: auto;
+  font-size: 300%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .shortMsg {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-left: 2%;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 2%;
 }
-.settings{
-    font-size: 200%;
-    float: right;
-    margin-right: 1%;
+.settings {
+  font-size: 200%;
+  float: right;
+  margin-right: 1%;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    width: 76%;
+    margin-left: 21%;
+  }
+  nav i {
+    height: auto;
+  }
 }

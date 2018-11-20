@@ -23,3 +23,13 @@
 
 
 
+@media only screen and (max-width: 600px) {
+    .messageText {
+        font-size: 10px;
+    }
+    .messageDateTime {
+        font-size: 10px;
+    }
+
+
+}
