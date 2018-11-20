@@ -2,11 +2,14 @@ import React from "react";
 import "./MessageContent.css";
 
 class MessageContent extends React.Component {
-  state = {
-    profilePic: "",
-    messageText: "",
-    messageDateTime: ""
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      message: "",
+      messageSent: false
+    };
+  }
 
   // renderMessage = () => {
 
@@ -18,6 +21,7 @@ class MessageContent extends React.Component {
 
   render() {
     return (
+
       <div className="messageContentParent">
         <li className="messageContentDiv">
           <div className="row">
@@ -32,9 +36,7 @@ class MessageContent extends React.Component {
             <div className="messageContent col s10 m10 l10">
               <p className="messageText">
                 {/* Message: {this.state.messageText} */}
-                This is great weather we're having, wow look at that, its
-                absolutely freezing out here, my toes are about to fall off,
-                wow!
+                {this.state.message}
               </p>
             </div>
             <div className="messageDateTimeDiv col s1 m1 l1">

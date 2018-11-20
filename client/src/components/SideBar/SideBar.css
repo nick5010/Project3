@@ -64,7 +64,7 @@
   width: 60%;
   margin-left: 20%;
 }
-.modal{
+.modal {
   text-align: center;
   width: 40%;
 }
@@ -72,4 +72,62 @@
   width: 140%;
   padding-top: 26%;
   padding-left: 10%;
+}
+
+/* Mobile Responsive */
+
+@media only screen and (max-width: 600px) {
+  #mainRow {
+    height: 100%;
+    width: 20%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+    text-align: center;
+    position: fixed;
+    overflow-y: auto;
+    margin-top: auto;
+    top: 0;
+  }
+  .newConvoBtn {
+    margin: 0% 1% 5% 1%;
+    border-style: solid;
+    border-color: teal;
+    border-width: 1px;
+    height: 23%;
+    width: 48%;
+    padding-left: 2%;
+  }
+  .messageIcon {
+    width: 900%;
+  }
+  .btn {
+    line-height: 0;
+  }
+  .groupMessages {
+    font-size: 90%;
+  }
+  .groupMessageDiv {
+    font-size: 80%;
+    height: auto;
+  }
+  .directMessages {
+    font-size: 90%;
+  }
+  .directMessageDiv {
+    font-size: 80%;
+  }
+  .modal {
+    width: 60%;
+    font-size: 10px;
+  }
+  .modal h4 {
+    font-size: 15px;
+  }
+  .modalDrop {
+    font-size: 10px;
+  }
+  .modalStartMsg {
+    margin-left: 2%;
+  }
 }
