@@ -21,6 +21,11 @@
     font-family: 'Open Sans', sans-serif;
 } 
 
+.translateBtn{
+    width: 95%;
+    padding-left: 5%;
+    font-size: 71%;
+}
 
 
 @media only screen and (max-width: 600px) {

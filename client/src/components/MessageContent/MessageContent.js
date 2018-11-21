@@ -1,27 +1,37 @@
 import React from "react";
 import "./MessageContent.css";
 
+const googleTranslate = require("google-translate")(
+  "AIzaSyBqxoLKtpqHsvMm9aNpa6NWJ42t2OYnN9A"
+);
+
 class MessageContent extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       message: "",
-      messageSent: false
+      messageSent: false,
+      translated: false,
+      translatedText: ""
     };
   }
 
-  // renderMessage = () => {
+  translate = (message, language) => {
+    let that = this;
+    googleTranslate.translate(this.props.msgToBeTranlated, "pt", function(
+      err,
+      translation
+    ) {
+      console.log(translation.translatedText);
+      console.log(that);
 
-  // }
-
-  // renderTime = event => {
-
-  // }
+      that.setState({translatedText: translation.translatedText, translated: true})
+    });
+  };
 
   render() {
     return (
-
       <div className="messageContentParent">
         <li className="messageContentDiv">
           <div className="row">
@@ -34,17 +44,14 @@ class MessageContent extends React.Component {
               </a>
             </div>
             <div className="messageContent col s10 m10 l10">
-              <p className="messageText">
-                {/* Message: {this.state.messageText} */}
-                {this.state.message}
-              </p>
+              {!this.state.translated ? <p className="messageText">{this.props.msgToBeTranlated}</p> : <p className="messageText">{this.state.translatedText}</p>}
             </div>
             <div className="messageDateTimeDiv col s1 m1 l1">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
               <p className="messageDateTime">11:29 AM / 09-18</p>
-              {/* <button className="btn waves-effect waves-light translateBtn">
+              <button onClick={this.translate} className="btn waves-effect waves-light translateBtn">
                 Translate Text
-              </button> */}
+              </button>
             </div>
           </div>
         </li>

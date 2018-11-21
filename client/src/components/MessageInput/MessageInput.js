@@ -1,6 +1,9 @@
 import React from "react";
 import "./MessageInput.css";
 
+
+
+
 class MessageInput extends React.Component {
   constructor(props) {
     super(props);
@@ -17,10 +20,17 @@ class MessageInput extends React.Component {
 
   sendMethod = event => {
     event.preventDefault();
-    alert("message: " + this.state.message);
+    // alert("message: " + this.state.message);
+this.props.updateMessage(this.state.message)
 
   };
-
+// handleSend = () => {
+//   this.props.onSend({
+//     timestamp: Date.now(),
+//     from: "Jeff",
+//     message: this.state.message
+//   })
+// }
   render() {
     return (
       <div className="MessageInput" id="footer">
