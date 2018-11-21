@@ -2,8 +2,9 @@
   margin-left: 16%;
   width: 83%;
   height: 150%;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 12px 16px 0 #97AABD 0.5,
+    0 17px 50px 0 #97AABD;
+    background-color: #314455;
 }
 .comet {
   font-size: 300%;
