@@ -1,14 +1,18 @@
 .MessageInput {
   margin-left: 15%;
-  background-color: teal;
+  background-color: #282828;
   bottom: 0;
 }
 .secondaryRow2 {
   padding-top: 1%;
+  background-color: #282828;
 }
 .messageContent {
   width: 20%;
   bottom: 0;
+  background-color: #5e5c5c;
+  border-radius: 20em;
+  color: white;
 }
 .sendBtn {
   font-size: 220%;
@@ -16,6 +20,13 @@
   margin-left: 10%;
   margin-bottom: 0;
   padding-left: 7%;
+  background-color: #5e5c5c;
+}
+/* .sendBtn:hover{
+  background-color: #4744f5;
+} */
+.sendBtn:after{
+  background-color: #5e5c5c;
 }
 
 #footer {

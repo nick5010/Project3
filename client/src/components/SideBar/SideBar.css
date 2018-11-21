@@ -1,20 +1,21 @@
 #sideBar {
   height: 100%;
   border-style: solid;
-  border-color: teal;
+  border-color: white;
   border-width: 1px;
+  
 }
 .groupMessageDiv {
   height: 9%;
   border-style: solid;
-  border-color: teal;
+  border-color: white;
   border-width: 1px;
   padding: 9%;
 }
 .directMessageDiv {
   /* height: 9%; */
   border-style: solid;
-  border-color: teal;
+  border-color: white;
   border-width: 1px;
   padding: 0;
 }
@@ -23,33 +24,38 @@
   height: 100%;
   width: 15%;
   border-style: solid;
-  border-color: teal;
+  border-color: white;
   border-width: 1px;
   text-align: center;
   position: fixed;
   overflow-y: auto;
   margin-top: auto;
   top: 0;
+  background-color: #282828;
+  color: white;
 }
 .groupMessages {
-  background-color: teal;
+  background-color: #282828;
   color: white;
   margin: 0;
+  font-size: 150%;
 }
 .directMessages {
-  background-color: teal;
+  background-color: #282828;
   color: white;
   margin-bottom: 0;
+  font-size: 150%;
 }
 
 .newConvoBtn {
   margin: 0% 1% 5% 1%;
   border-style: solid;
-  border-color: teal;
+  border-color: white;
   border-width: 1px;
   height: 5%;
   width: 48%;
   padding-left: 2%;
+  background-color: #282828;
 }
 
 .modalStartMsg {
@@ -81,7 +87,7 @@
     height: 100%;
     width: 20%;
     border-style: solid;
-    border-color: teal;
+    
     border-width: 1px;
     text-align: center;
     position: fixed;
@@ -92,7 +98,7 @@
   .newConvoBtn {
     margin: 0% 1% 5% 1%;
     border-style: solid;
-    border-color: teal;
+  
     border-width: 1px;
     height: 23%;
     width: 48%;
