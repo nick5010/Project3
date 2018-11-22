@@ -1,9 +1,12 @@
 import React from "react";
 import "./MessageContent.css";
+// import { Input } from "react-materialize";
 
-const googleTranslate = require("google-translate")(
-  "AIzaSyBqxoLKtpqHsvMm9aNpa6NWJ42t2OYnN9A"
-);
+
+
+//THIS KEY NEEDS TO BE HIDDEN//
+const googleApiKey = "AIzaSyBqxoLKtpqHsvMm9aNpa6NWJ42t2OYnN9A"
+const googleTranslate = require("google-translate")(googleApiKey);
 
 class MessageContent extends React.Component {
   constructor(props) {
@@ -13,21 +16,159 @@ class MessageContent extends React.Component {
       message: "",
       messageSent: false,
       translated: false,
-      translatedText: ""
+      translatedText: "",
+
+      langCodeList: [
+        "af",
+        "sq",
+        "ar",
+        "az",
+        "eu",
+        "bn",
+        "be",
+        "bg",
+        "ca",
+        "zh-CN",
+        "zh-TW",
+        "hr",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "eo",
+        "et",
+        "tl",
+        "fi",
+        "fr",
+        "gl",
+        "ka",
+        "de",
+        "el",
+        "gu",
+        "ht",
+        "iw",
+        "hi",
+        "hu",
+        "is",
+        "id",
+        "ga",
+        "it",
+        "ja",
+        "ko",
+        "la",
+        "lv",
+        "lt",
+        "mk",
+        "ms",
+        "mt",
+        "no",
+        "fa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sr",
+        "sk",
+        "sl",
+        "es",
+        "sw",
+        "sv",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "vi",
+        "cy",
+        "yi"
+      ],
+
+      langList: [
+        "Afrikaans",
+        "Albanian",
+        "Arabic",
+        "Azerbaijani",
+        "Basque",
+        "Bengali",
+        "Belarusian",
+        "Bulgarian",
+        "Catalan",
+        "Chinese Simplified",
+        "Chinese Traditional",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Filipino",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Greek",
+        "Gujarati",
+        "Haitian Creole",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Kannada",
+        "Korean",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay",
+        "Maltese",
+        "Norwegian",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swahili",
+        "Swedish",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Welsh",
+        "Yiddish"
+      ]
     };
   }
 
   translate = (message, language) => {
     let that = this;
-    googleTranslate.translate(this.props.msgToBeTranlated, "pt", function(
-      err,
-      translation
-    ) {
-      console.log(translation.translatedText);
-      console.log(that);
+    if (this.props.msgToBeTranlated.length) {
+      googleTranslate.translate(this.props.msgToBeTranlated, "es", function(
+        err,
+        translation
+      ) {
+        console.log(translation.translatedText);
+        console.log(that);
 
-      that.setState({translatedText: translation.translatedText, translated: true})
-    });
+        that.setState({
+          translatedText: translation.translatedText,
+          translated: true
+        });
+      });
+    } else return;
   };
 
   render() {
@@ -43,13 +184,22 @@ class MessageContent extends React.Component {
                 <img src="https://via.placeholder.com/40" alt="" />
               </a>
             </div>
-            <div className="messageContent col s10 m10 l10">
-              {!this.state.translated ? <p className="messageText">{this.props.msgToBeTranlated}</p> : <p className="messageText">{this.state.translatedText}</p>}
+            <div className="messageContent col s9 m9 l9">
+              {!this.state.translated ? (
+                <p className="messageText">{this.props.msgToBeTranlated}</p>
+              ) : (
+                <p className="messageText">{this.state.translatedText}</p>
+              )}
             </div>
-            <div className="messageDateTimeDiv col s1 m1 l1">
+            <div className="messageDateTimeDiv col s2 m2 l2">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
-              <p className="messageDateTime">11:29 AM / 09-18</p>
-              <button onClick={this.translate} className="btn waves-effect waves-light translateBtn">
+              <p className="messageDateTime">11:29 AM / 11/21/18</p>
+
+            
+              <button
+                onClick={this.translate}
+                className="btn waves-effect waves-light translateBtn"
+              >
                 Translate Text
               </button>
             </div>
