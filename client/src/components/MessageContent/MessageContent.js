@@ -1,6 +1,6 @@
 import React from "react";
 import "./MessageContent.css";
-// import { Input } from "react-materialize";
+import { Input } from "react-materialize";
 
 
 
@@ -170,7 +170,9 @@ class MessageContent extends React.Component {
       });
     } else return;
   };
-
+languageSelect = (message, language) => {
+ 
+}
   render() {
     return (
       <div className="messageContentParent">
@@ -194,6 +196,24 @@ class MessageContent extends React.Component {
             <div className="messageDateTimeDiv col s2 m2 l2">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
               <p className="messageDateTime">11:29 AM / 11/21/18</p>
+
+
+              <Input
+            name="chosenLang"
+              s={12}
+              type="select"
+              onChange={this.languageSelect}
+              className="langDrop"
+              
+            >
+              {this.state.langList.length
+                ? this.state.langList.map((language, index) => (
+                    <option value={language} key={index}>
+                      {language}
+                    </option>
+                  ))
+                : "Nope"}
+            </Input>
 
             
               <button

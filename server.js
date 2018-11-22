@@ -15,18 +15,19 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // this is our MongoDB database
 const dbRoute = "mongodb://<dbuser>:<dbpassword>@ds033907.mlab.com:33907/dummydb";
 
 // This is our MongoDB Database
 mongoose.connect(
-  dbRoute,
-  {useNewUrlParser: true}
+  process.env.MONGODB_URI ||
+  "mongodb://localhost/userdb"
 );
+
 
 let db = mongoose.connection;
 
@@ -77,3 +78,22 @@ app.use(logger("dev"));
 //     return res.json({success: true});
 //   });
 // });
+
+// Route to post our form submission to mongoDB via mongoose
+app.post("/push", function(req, res) {
+  // Create a new user using req.body
+  User.create(req.body)
+    .then(function(dbUser) {
+      // If saved successfully, send the the new User document to the client
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      // If an error occurs, send the error to the client
+      res.json(err);
+    });
+});
+
+
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});

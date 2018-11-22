@@ -2,6 +2,7 @@ import React from "react";
 import "./SideBar.css";
 import { Modal, Button, Input } from "react-materialize";
 import DirectMessage from "../DirectMessage";
+import API from "../../utils/userAPI";
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -15,7 +16,22 @@ class SideBar extends React.Component {
     };
   }
  
-  handleDropdownChange = event => {
+  componentDidMount() {
+    this.loadUsers();
+  }
+
+  // Loads all books  and sets them to this.state.books
+  loadUsers = () => {
+    API.getUsers()
+      .then(res =>
+        this.setState({ users: res.data})
+      )
+      .catch(err => console.log(err));
+      console.log(this.state.users)
+    };
+    
+    
+    handleDropdownChange = event => {
     console.log("----new console log----");
     const { name, value } = event.target;
 
@@ -69,11 +85,11 @@ class SideBar extends React.Component {
             name="chosenUser"
               s={12}
               type="select"
-              onChange={this.handleDropdownChange}
+              onChange={this.loadUsers}
               className="modalDrop"
             >
               {this.state.nameList.length
-                ? this.state.nameList.map((person, index) => (
+                ? this.state.users.map((person, index) => (
                     <option value={person} key={person}>
                       {person}
                     </option>
