@@ -3,7 +3,7 @@ import "./SideBar.css";
 import { Modal, Button, Input } from "react-materialize";
 import DirectMessage from "../DirectMessage";
 import GroupMessage from "../GroupMessage";
-import API from "../../utils/userAPI";
+// import API from "../../utils/userAPI";
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -21,19 +21,19 @@ class SideBar extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.loadUsers();
-  }
+  // componentDidMount() {
+  //   this.loadUsers();
+  // }
 
-  loadUsers = () => {
-    API.getUsers()
-      .then(res => {
-        console.log("line 27: " + res);
-        this.setState({ users: res.data });
-      })
-      .catch(err => console.log(err));
-    console.log("users*: " + this.state.users);
-  };
+  // loadUsers = () => {
+  //   API.getUsers()
+  //     .then(res => {
+  //       console.log("line 27: " + res);
+  //       this.setState({ users: res.data });
+  //     })
+  //     .catch(err => console.log(err));
+  //   console.log("users*: " + this.state.users);
+  // };
 
   // // First get method that uses the backend api to fetch data from the database
   // getDataFromDb = () => {
