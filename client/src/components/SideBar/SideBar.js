@@ -78,110 +78,108 @@ class SideBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <div id="mainRow" className="card col s4 m2 l2">
-          {/* DIRECT MSG MODAL */}
-          <Modal
-            header="Start A New Message With:"
-            className="modal"
-            trigger={
-              <Button className="newConvoBtn btn waves-effect waves-light">
-                <img
-                  className="messageIcon"
-                  src="../../../images/directMessageIcon.png"
-                  alt="create direct message"
-                />
-              </Button>
-            }
+      <div id="mainRow" className="card col s4 m2 l2">
+        {/* DIRECT MSG MODAL */}
+        <Modal
+          header="Start A New Message With:"
+          className="modal"
+          trigger={
+            <Button className="directMessageBtn btn waves-effect waves-light">
+              <img
+                className="messageIcon"
+                src="../../../images/directMessageIcon.png"
+                alt="create direct message"
+              />
+            </Button>
+          }
+        >
+          {" "}
+          <Input
+            name="chosenUser"
+            s={12}
+            type="select"
+            onChange={this.handleDropdownChange}
+            className="modalDrop"
           >
-            {" "}
-            <Input
-              name="chosenUser"
-              s={12}
-              type="select"
-              onChange={this.handleDropdownChange}
-              className="modalDrop"
-            >
-              {this.state.nameList.length
-                ? this.state.nameList.map((person, index) => (
-                    <option value={person} key={person}>
-                      {person}
-                    </option>
-                  ))
-                : "Nope"}
-            </Input>
-            <button
-              onClick={this.handleStartMessage}
-              className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
-            >
-              Start Message
-            </button>
-          </Modal>
-
-
-
-
-
-
-          {/* Group Message Modal */}
-          <Modal
-            header="Start A Group Message with:"
-            className="modal"
-            trigger={
-              <Button className="newConvoBtn btn waves-effect waves-light">
-                <img
-                  className="messageIcon"
-                  src="../../../images/groupMessageIcon.png"
-                  alt="create group message"
-                />
-              </Button>
-            }
+            {this.state.nameList.length
+              ? this.state.nameList.map((person, index) => (
+                <option value={person} key={person}>
+                  {person}
+                </option>
+              ))
+              : "Nope"}
+          </Input>
+          <button
+            onClick={this.handleStartMessage}
+            className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
           >
-            {" "}
-            <Input
-              name="userInGroup"
-              s={12}
-              type="select"
-              onChange={this.handleDropdownChange}
-              className="modalDrop"
-            >
-              {this.state.dummyChannels.length
-                ? this.state.dummyChannels.map((channel, index) => (
-                    <option value={channel} key={channel}>
-                      {channel}
-                    </option>
-                  ))
-                : "Nope"}
-            </Input>
-            <button
-              onClick={this.handleGroupMessage}
-              className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
-            >
-              Start Message
+            Start Message
             </button>
-          </Modal>
+        </Modal>
 
-          <h5 className="groupMessages">Group Messages</h5>
-          <div className="groupMessageDiv">
-            {this.state.groupMessageLoaded
-              ? this.state.channels.length
-                ? this.state.channels.map((channel, index) => (
-                    <GroupMessage key={channel} user={channel} />
-                  ))
-                : null
-              : null}
-          </div>
 
-          <h5 className="directMessages">Direct Messages</h5>
-          <div className="directMessageDiv">
-            {this.state.directMessageLoaded
-              ? this.state.users.length
-                ? this.state.users.map((dmUser, index) => (
-                    <DirectMessage key={dmUser} user={dmUser} />
-                  ))
-                : null
-              : null}
-          </div>
+
+
+
+
+        {/* Group Message Modal */}
+        <Modal
+          header="Start A Group Message with:"
+          className="modal"
+          trigger={
+            <Button className="groupMessageBtn btn waves-effect waves-light">
+              <img
+                className="messageIcon"
+                src="../../../images/groupMessageIcon.png"
+                alt="create group message"
+              />
+            </Button>
+          }
+        >
+          {" "}
+          <Input
+            name="userInGroup"
+            s={12}
+            type="select"
+            onChange={this.handleDropdownChange}
+            className="modalDrop"
+          >
+            {this.state.dummyChannels.length
+              ? this.state.dummyChannels.map((channel, index) => (
+                <option value={channel} key={channel}>
+                  {channel}
+                </option>
+              ))
+              : "Nope"}
+          </Input>
+          <button
+            onClick={this.handleGroupMessage}
+            className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
+          >
+            Start Message
+            </button>
+        </Modal>
+
+        <h5 className="groupMessagesHeader">Group Messages</h5>
+        <div className="groupMessageDiv">
+          {this.state.groupMessageLoaded
+            ? this.state.channels.length
+              ? this.state.channels.map((channel, index) => (
+                <GroupMessage key={channel} user={channel} />
+              ))
+              : null
+            : null}
+        </div>
+
+        <h5 className="directMessages">Direct Messages</h5>
+        <div className="directMessageDiv">
+          {this.state.directMessageLoaded
+            ? this.state.users.length
+              ? this.state.users.map((dmUser, index) => (
+                <DirectMessage key={dmUser} user={dmUser} />
+              ))
+              : null
+            : null}
         </div>
       </div>
     );

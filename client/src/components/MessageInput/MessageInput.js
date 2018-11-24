@@ -49,12 +49,7 @@ this.props.updateMessage(this.state.message)
               </form>
             </div>
             <div className="row col s2 m2 l2">
-              <button type="submit"
-                onClick={this.sendMethod}
-                className="btn waves-effect waves-light sendBtn"
-              >
-                Send
-              </button>
+            <a className="push_button blue" type="submit" onClick={this.sendMethod}>Send</a>
             </div>
           </div>
         </div>

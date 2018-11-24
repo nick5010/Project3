@@ -1,24 +1,37 @@
 .header {
   margin-left: 16%;
   width: 83%;
-  height: 150%;
-  background-color: #282828;
+  height: 100%;
+  /* box-shadow: 0 12px 16px 0  rgba(0,0,0,0.24) , 0 17px 50px 0 rgba(0,0,0,0.24); */
+    background-color: #272727;
+    padding-left: 5%;
+    padding-top: 1%;
+    box-shadow: none!important;
 }
+
 .comet {
-  font-size: 300%;
-  margin-top: auto;
+  font-size: 400%;
+  padding-top: 2%;
   margin-bottom: auto;
+  font-family: 'Quicksand', sans-serif;
 }
 .shortMsg {
+  font-size: 125%;
   margin-top: auto;
   margin-bottom: auto;
-  padding-left: 2%;
+  font-family: 'Quicksand', sans-serif;
 }
 .settings {
   font-size: 200%;
   float: right;
   margin-right: 1%;
+  transition: .3s;
 }
+
+.settings:hover{
+  box-shadow: 0 11 11px green; 
+}
+
 
 @media only screen and (max-width: 600px) {
   .header {
@@ -29,3 +42,4 @@
     height: auto;
   }
 }
+

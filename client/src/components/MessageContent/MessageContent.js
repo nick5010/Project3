@@ -92,7 +92,7 @@ class MessageContent extends React.Component {
       googleTranslate.translate(
         this.props.msgToBeTranlated,
         this.state.chosenLang,
-        function(err, translation) {
+        function (err, translation) {
           console.log(translation.translatedText);
           console.log(that);
 
@@ -111,7 +111,7 @@ class MessageContent extends React.Component {
     return (
       <div className="messageContentParent">
         <li className="messageContentDiv">
-          <div className="row">
+          <div className="row messageContentRow valign-wrapper">
             <div className="profilePic col s1 m1 l1">
               {/* Prop of component will replace this placeholder */}
               {/* {this.props.profilePic} */}
@@ -124,18 +124,18 @@ class MessageContent extends React.Component {
                 />
               </a>
             </div>
-            <div className="messageContent col s9 m9 l9">
+            <div className="messageTextDiv col s9 m9 l9">
               {!this.state.translated ? (
                 <p className="messageText">{this.props.msgToBeTranlated}</p>
               ) : (
-                <p className="messageText">{this.state.translatedText}</p>
-              )}
+                  <p className="messageText">{this.state.translatedText}</p>
+                )}
             </div>
             <div className="messageDateTimeDiv col s2 m2 l2">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
               <p className="messageDateTime">11:29 AM / 11/21/18</p>
 
-                  {/* languages dropdown */}
+              {/* languages dropdown */}
               <Input
                 name="chosenLang"
                 s={12}
@@ -145,24 +145,26 @@ class MessageContent extends React.Component {
               >
                 {this.langList.length
                   ? this.langList.map((languageObj, index) => (
-                      <option
-                        name={languageObj.name}
-                        value={languageObj.value}
-                        key={index}
-                      >
-                        {languageObj.name}
-                      </option>
-                    ))
+                    <option
+                      name={languageObj.name}
+                      value={languageObj.value}
+                      key={index}
+                    >
+                      {languageObj.name}
+                    </option>
+                  ))
                   : "Nope"}
               </Input>
-              
-                    {/* translate submit button */}
-              <button
-                onClick={this.translate}
-                className="btn waves-effect waves-light translateBtn"
-              >
-                Translate Text
+
+              {/* translate submit button */}
+              <div className="translateButtonDiv">
+                <button
+                  onClick={this.translate}
+                  className="btn waves-effect waves-light translateBtn"
+                >
+                  Translate Text
               </button>
+              </div>
             </div>
           </div>
         </li>
