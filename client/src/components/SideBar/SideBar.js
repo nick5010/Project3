@@ -2,6 +2,7 @@ import React from "react";
 import "./SideBar.css";
 import { Modal, Button, Input } from "react-materialize";
 import DirectMessage from "../DirectMessage";
+import GroupMessage from "../GroupMessage";
 import API from "../../utils/userAPI";
 
 class SideBar extends React.Component {
@@ -10,31 +11,40 @@ class SideBar extends React.Component {
 
     this.state = {
       nameList: ["Bob", "Mark", "Steve", "Jack", "Bill", "Rick", "Some-Guy"],
+      dummyChannels: ["Channel 1", "Channel 2", "Channel 3", "Channel 4"],
+      channels: [],
       users: [],
       chosenUser: null,
+      userInGroup: null,
       directMessageLoaded: true,
+      groupMessageLoaded: true
     };
   }
- 
+
   componentDidMount() {
     this.loadUsers();
   }
 
-  // Loads all books  and sets them to this.state.books
   loadUsers = () => {
     API.getUsers()
-      .then(res =>
-        this.setState({ users: res.data})
-      )
+      .then(res => {
+        console.log("line 27: " + res);
+        this.setState({ users: res.data });
+      })
       .catch(err => console.log(err));
-      console.log(this.state.users)
-    };
-    
-    
-    handleDropdownChange = event => {
+    console.log("users*: " + this.state.users);
+  };
+
+  // // First get method that uses the backend api to fetch data from the database
+  // getDataFromDb = () => {
+  //   fetch("/api/getData")
+  //     .then(data => data.json())
+  //     .then(res => this.setState({ data: res.data }))
+  // };
+
+  handleDropdownChange = event => {
     console.log("----new console log----");
     const { name, value } = event.target;
-
     this.setState({
       [name]: value
     });
@@ -51,45 +61,49 @@ class SideBar extends React.Component {
         users: [...this.state.users, chosenUser]
       });
     }
-  }
+  };
+
+  handleGroupMessage = () => {
+    const { userInGroup } = this.state;
+    if (!userInGroup) {
+      return console.log("No channel chosen.");
+    }
+
+    if (!this.state.channels.includes(userInGroup)) {
+      this.setState({
+        channels: [...this.state.channels, userInGroup]
+      });
+    }
+  };
 
   render() {
     return (
-      
       <div>
         <div id="mainRow" className="card col s4 m2 l2">
+          {/* DIRECT MSG MODAL */}
           <Modal
             header="Start A New Message With:"
             className="modal"
             trigger={
-              <div>
-                <Button className="newConvoBtn btn waves-effect waves-light">
-                  <img
-                    className="messageIcon"
-                    src="../../../images/groupMessageIcon.png"
-                    alt="create group message"
-                  />
-                </Button>
-                <Button className="newConvoBtn btn waves-effect waves-light">
-                  <img
-                    className="messageIcon"
-                    src="../../../images/directMessageIcon.png"
-                    alt="create group message"
-                  />
-                </Button>
-              </div>
+              <Button className="newConvoBtn btn waves-effect waves-light">
+                <img
+                  className="messageIcon"
+                  src="../../../images/directMessageIcon.png"
+                  alt="create direct message"
+                />
+              </Button>
             }
           >
             {" "}
             <Input
-            name="chosenUser"
+              name="chosenUser"
               s={12}
               type="select"
-              onChange={this.loadUsers}
+              onChange={this.handleDropdownChange}
               className="modalDrop"
             >
               {this.state.nameList.length
-                ? this.state.users.map((person, index) => (
+                ? this.state.nameList.map((person, index) => (
                     <option value={person} key={person}>
                       {person}
                     </option>
@@ -104,18 +118,67 @@ class SideBar extends React.Component {
             </button>
           </Modal>
 
-          <h5 className="groupMessages">Group Messages</h5>
-          <div className="groupMessageDiv">Channel 1</div>
-          <div className="groupMessageDiv">Channel 2</div>
-          <div className="groupMessageDiv">Channel 3</div>
-          <h5 className="directMessages">Direct Messages</h5>
 
-           <div className="directMessageDiv">
+
+
+
+
+          {/* Group Message Modal */}
+          <Modal
+            header="Start A Group Message with:"
+            className="modal"
+            trigger={
+              <Button className="newConvoBtn btn waves-effect waves-light">
+                <img
+                  className="messageIcon"
+                  src="../../../images/groupMessageIcon.png"
+                  alt="create group message"
+                />
+              </Button>
+            }
+          >
+            {" "}
+            <Input
+              name="userInGroup"
+              s={12}
+              type="select"
+              onChange={this.handleDropdownChange}
+              className="modalDrop"
+            >
+              {this.state.dummyChannels.length
+                ? this.state.dummyChannels.map((channel, index) => (
+                    <option value={channel} key={channel}>
+                      {channel}
+                    </option>
+                  ))
+                : "Nope"}
+            </Input>
+            <button
+              onClick={this.handleGroupMessage}
+              className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
+            >
+              Start Message
+            </button>
+          </Modal>
+
+          <h5 className="groupMessages">Group Messages</h5>
+          <div className="groupMessageDiv">
+            {this.state.groupMessageLoaded
+              ? this.state.channels.length
+                ? this.state.channels.map((channel, index) => (
+                    <GroupMessage key={channel} user={channel} />
+                  ))
+                : null
+              : null}
+          </div>
+
+          <h5 className="directMessages">Direct Messages</h5>
+          <div className="directMessageDiv">
             {this.state.directMessageLoaded
               ? this.state.users.length
                 ? this.state.users.map((dmUser, index) => (
-                  <DirectMessage key={dmUser} user={dmUser} />
-                ))
+                    <DirectMessage key={dmUser} user={dmUser} />
+                  ))
                 : null
               : null}
           </div>

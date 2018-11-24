@@ -6,11 +6,12 @@
   
 }
 .groupMessageDiv {
-  height: 9%;
+  /* height: 9%; */
   border-style: solid;
   border-color: white;
   border-width: 1px;
-  padding: 9%;
+  padding: 0%;
+  overflow:unset;
 }
 .directMessageDiv {
   /* height: 9%; */

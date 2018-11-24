@@ -56,7 +56,7 @@ class SignUp extends React.Component {
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="passwordSignUp" type="password" name="password" value={this.state.password} conChange={this.handleInputChange} lass="validate" />
+                                <input id="passwordSignUp" type="password" name="password" value={this.state.password} onChange={this.handleInputChange} lass="validate" />
                                 <label for="passwordSignUp">Password</label>
                             </div>
                         </div>

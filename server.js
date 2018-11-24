@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+var Data = require("./controllers/userController")
 // const Data = require("./data");
 // const router = express.Router();
 
@@ -15,23 +16,23 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // this is our MongoDB database
-const dbRoute = "mongodb://<dbuser>:<dbpassword>@ds033907.mlab.com:33907/dummydb";
+// const dbRoute = "mongodb://<dbuser>:<dbpassword>@ds033907.mlab.com:33907/dummydb";
 
 // This is our MongoDB Database
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/userdb"
-);
+// mongoose.connect(
+//   process.env.MONGODB_URI ||
+//   "mongodb://localhost/userdb"
+// );
 
 
 let db = mongoose.connection;
 
-db.once("open", () => console.log("connected to the database"));
+db.once("open", () => console.log("YOU ARE connected to the database"));
 
 // checks if connection with the database is successful
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -79,19 +80,28 @@ app.use(logger("dev"));
 //   });
 // });
 
+app.get("/api/users", (req, res) => {
+  
+  Data.findAll((err, data) => {
+    console.log("data: " + data)
+    if(err) return res.json({success: false, error: err });
+    return res.json({success: true, data: data})
+  })
+})
+
 // Route to post our form submission to mongoDB via mongoose
-app.post("/push", function(req, res) {
-  // Create a new user using req.body
-  User.create(req.body)
-    .then(function(dbUser) {
-      // If saved successfully, send the the new User document to the client
-      res.json(dbUser);
-    })
-    .catch(function(err) {
-      // If an error occurs, send the error to the client
-      res.json(err);
-    });
-});
+// app.post("/push", function(req, res) {
+//   // Create a new user using req.body
+//   User.create(req.body)
+//     .then(function(dbUser) {
+//       // If saved successfully, send the the new User document to the client
+//       res.json(dbUser);
+//     })
+//     .catch(function(err) {
+//       // If an error occurs, send the error to the client
+//       res.json(err);
+//     });
+// });
 
 
 app.listen(PORT, function() {
