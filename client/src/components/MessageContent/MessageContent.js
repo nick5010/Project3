@@ -2,10 +2,8 @@ import React from "react";
 import "./MessageContent.css";
 import { Input } from "react-materialize";
 
-
-
 //THIS KEY NEEDS TO BE HIDDEN//
-const googleApiKey = "AIzaSyBqxoLKtpqHsvMm9aNpa6NWJ42t2OYnN9A"
+const googleApiKey = "AIzaSyBqxoLKtpqHsvMm9aNpa6NWJ42t2OYnN9A";
 const googleTranslate = require("google-translate")(googleApiKey);
 
 class MessageContent extends React.Component {
@@ -17,162 +15,98 @@ class MessageContent extends React.Component {
       messageSent: false,
       translated: false,
       translatedText: "",
-
-      langCodeList: [
-        "af",
-        "sq",
-        "ar",
-        "az",
-        "eu",
-        "bn",
-        "be",
-        "bg",
-        "ca",
-        "zh-CN",
-        "zh-TW",
-        "hr",
-        "cs",
-        "da",
-        "nl",
-        "en",
-        "eo",
-        "et",
-        "tl",
-        "fi",
-        "fr",
-        "gl",
-        "ka",
-        "de",
-        "el",
-        "gu",
-        "ht",
-        "iw",
-        "hi",
-        "hu",
-        "is",
-        "id",
-        "ga",
-        "it",
-        "ja",
-        "ko",
-        "la",
-        "lv",
-        "lt",
-        "mk",
-        "ms",
-        "mt",
-        "no",
-        "fa",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sr",
-        "sk",
-        "sl",
-        "es",
-        "sw",
-        "sv",
-        "ta",
-        "te",
-        "th",
-        "tr",
-        "uk",
-        "ur",
-        "vi",
-        "cy",
-        "yi"
-      ],
-
-      langList: [
-        "Afrikaans",
-        "Albanian",
-        "Arabic",
-        "Azerbaijani",
-        "Basque",
-        "Bengali",
-        "Belarusian",
-        "Bulgarian",
-        "Catalan",
-        "Chinese Simplified",
-        "Chinese Traditional",
-        "Croatian",
-        "Czech",
-        "Danish",
-        "Dutch",
-        "English",
-        "Esperanto",
-        "Estonian",
-        "Filipino",
-        "Finnish",
-        "French",
-        "Galician",
-        "Georgian",
-        "German",
-        "Greek",
-        "Gujarati",
-        "Haitian Creole",
-        "Hebrew",
-        "Hindi",
-        "Hungarian",
-        "Icelandic",
-        "Indonesian",
-        "Irish",
-        "Italian",
-        "Japanese",
-        "Kannada",
-        "Korean",
-        "Latin",
-        "Latvian",
-        "Lithuanian",
-        "Macedonian",
-        "Malay",
-        "Maltese",
-        "Norwegian",
-        "Persian",
-        "Polish",
-        "Portuguese",
-        "Romanian",
-        "Russian",
-        "Serbian",
-        "Slovak",
-        "Slovenian",
-        "Spanish",
-        "Swahili",
-        "Swedish",
-        "Tamil",
-        "Telugu",
-        "Thai",
-        "Turkish",
-        "Ukrainian",
-        "Urdu",
-        "Vietnamese",
-        "Welsh",
-        "Yiddish"
-      ]
+      chosenLang: "en"
     };
   }
 
+  langList = [
+    { name: "Afrikaans", value: "af" },
+    { name: "Albanian", value: "sq" },
+    { name: "Arabic", value: "ar" },
+    { name: "Azerbaijani", value: "az" },
+    { name: "Basque", value: "eu" },
+    { name: "Bengali", value: "bn" },
+    { name: "Belarusian", value: "be" },
+
+    { name: "Bulgarian", value: "bg" },
+    { name: "Catalan", value: "ca" },
+    { name: "Chinese Simplified", value: "zh-CN" },
+    { name: "Chinese Traditional", value: "zh-TW" },
+    { name: "Croatian", value: "hr" },
+    { name: "Czech", value: "cs" },
+    { name: "Danish", value: "da" },
+    { name: "Dutch", value: "nl" },
+    { name: "English", value: "en" },
+    { name: "Esperanto", value: "eo" },
+    { name: "Estonian", value: "et" },
+    { name: "Filipino", value: "tl" },
+    { name: "Finnish", value: "fi" },
+    { name: "French", value: "fr" },
+    { name: "Galician", value: "gl" },
+    { name: "Gerogian", value: "ka" },
+    { name: "German", value: "de" },
+    { name: "Greek", value: "el" },
+    { name: "Gujarati", value: "gu" },
+    { name: "Haitian Creole", value: "ht" },
+    { name: "Hebrew", value: "iw" },
+    { name: "Hindi", value: "hi" },
+    { name: "Hungarian", value: "hu" },
+    { name: "Icelandic", value: "is" },
+    { name: "Indonesian", value: "id" },
+    { name: "Irish", value: "ga" },
+    { name: "Italian", value: "it" },
+    { name: "Japanese", value: "ja" },
+    { name: "Kannada", value: "kn" },
+    { name: "Korean", value: "ko" },
+    { name: "latin", value: "la" },
+    { name: "Latvian", value: "lv" },
+    { name: "Lithuanian", value: "lt" },
+    { name: "Macedonian", value: "mk" },
+    { name: "Malay", value: "ms" },
+    { name: "Maltese", value: "mt" },
+    { name: "Norwegian", value: "no" },
+    { name: "Persian", value: "fa" },
+    { name: "Polish", value: "pl" },
+    { name: "Portuguese", value: "pt" },
+    { name: "Romanian", value: "ro" },
+    { name: "Russian", value: "ru" },
+    { name: "Serbian", value: "sr" },
+    { name: "Slovak", value: "sk" },
+    { name: "Slovenian", value: "sl" },
+    { name: "Spanish", value: "es" },
+    { name: "Swahili", value: "sw" },
+    { name: "Swedish", value: "sv" },
+    { name: "Tamil", value: "ta" },
+    { name: "Telugu", value: "te" },
+    { name: "Thai", value: "th" },
+    { name: "Turkish", value: "tr" },
+    { name: "Ukrainian", value: "uk" },
+    { name: "Urdu", value: "ur" },
+    { name: "Vietnamese", value: "vi" },
+    { name: "Welsh", value: "cy" },
+    { name: "Yiddish", value: "yi" }
+  ];
   translate = (message, language) => {
     let that = this;
     if (this.props.msgToBeTranlated.length) {
-      googleTranslate.translate(this.props.msgToBeTranlated, "es", function(
-        err,
-        translation
-      ) {
-        console.log(translation.translatedText);
-        console.log(that);
+      googleTranslate.translate(
+        this.props.msgToBeTranlated,
+        this.state.chosenLang,
+        function(err, translation) {
+          console.log(translation.translatedText);
+          console.log(that);
 
-        that.setState({
-          translatedText: translation.translatedText,
-          translated: true
-        });
-      });
+          that.setState({
+            translatedText: translation.translatedText,
+            translated: true
+          });
+        }
+      );
     } else return;
   };
-languageSelect = (message, language) => {
- 
-}
+  languageSelect = event => {
+    this.setState({ chosenLang: event.target.value });
+  };
   render() {
     return (
       <div className="messageContentParent">
@@ -183,7 +117,11 @@ languageSelect = (message, language) => {
               {/* {this.props.profilePic} */}
               <a href="https://www.placeholder.com">
                 {" "}
-                <img src="https://via.placeholder.com/40" alt="" />
+                <img
+                  className="circle"
+                  src="https://via.placeholder.com/40"
+                  alt=""
+                />
               </a>
             </div>
             <div className="messageContent col s9 m9 l9">
@@ -197,25 +135,28 @@ languageSelect = (message, language) => {
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
               <p className="messageDateTime">11:29 AM / 11/21/18</p>
 
-
+                  {/* languages dropdown */}
               <Input
-            name="chosenLang"
-              s={12}
-              type="select"
-              onChange={this.languageSelect}
-              className="langDrop"
+                name="chosenLang"
+                s={12}
+                type="select"
+                onChange={this.languageSelect}
+                className="langDrop"
+              >
+                {this.langList.length
+                  ? this.langList.map((languageObj, index) => (
+                      <option
+                        name={languageObj.name}
+                        value={languageObj.value}
+                        key={index}
+                      >
+                        {languageObj.name}
+                      </option>
+                    ))
+                  : "Nope"}
+              </Input>
               
-            >
-              {this.state.langList.length
-                ? this.state.langList.map((language, index) => (
-                    <option value={language} key={index}>
-                      {language}
-                    </option>
-                  ))
-                : "Nope"}
-            </Input>
-
-            
+                    {/* translate submit button */}
               <button
                 onClick={this.translate}
                 className="btn waves-effect waves-light translateBtn"
