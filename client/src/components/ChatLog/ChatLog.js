@@ -5,10 +5,10 @@ import MessageContent from "../MessageContent";
 const ChatLog = (props) => (
   <div className="card chatLog">
     <div className="card-body">
-      <div className="messageContentInChat">
+      <ul className="messageContentInChat">
         <MessageContent msgToBeTranlated={props.receivedMessage}/>
         
-      </div>
+      </ul>
     </div>
   </div>
 );
