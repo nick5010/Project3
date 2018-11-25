@@ -115,6 +115,7 @@ class MessageContent extends React.Component {
             <div className="profilePic col s1 m1 l1">
               {/* Prop of component will replace this placeholder */}
               {/* {this.props.profilePic} */}
+              <p className="messageDateTime">11:29 AM</p>
               <a href="https://www.placeholder.com">
                 {" "}
                 <img
@@ -123,7 +124,7 @@ class MessageContent extends React.Component {
                   alt=""
                 />
               </a>
-            </div>
+             </div>
             <div className="messageTextDiv col s9 m9 l9">
               {!this.state.translated ? (
                 <p className="messageText">{this.props.msgToBeTranlated}</p>
@@ -133,7 +134,7 @@ class MessageContent extends React.Component {
             </div>
             <div className="messageDateTimeDiv col s2 m2 l2">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
-              <p className="messageDateTime">11:29 AM / 11/21/18</p>
+              
 
               {/* languages dropdown */}
               <Input
@@ -160,7 +161,7 @@ class MessageContent extends React.Component {
               <div className="translateButtonDiv">
                 <button
                   onClick={this.translate}
-                  className="btn waves-effect waves-light translateBtn"
+                  className="btn waves-effect waves-light translateBtn grey"
                 >
                   Translate Text
               </button>
