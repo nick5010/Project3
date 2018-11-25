@@ -88,9 +88,9 @@ class MessageContent extends React.Component {
   ];
   translate = (message, language) => {
     let that = this;
-    if (this.props.msgToBeTranlated.length) {
+    if (this.props.text.length) {
       googleTranslate.translate(
-        this.props.msgToBeTranlated,
+        this.props.text,
         this.state.chosenLang,
         function (err, translation) {
           console.log(translation.translatedText);
@@ -111,31 +111,17 @@ class MessageContent extends React.Component {
     return (
       <div className="messageContentParent">
         <li className="messageContentDiv">
-          <div className="row messageContentRow valign-wrapper">
-            <div className="profilePic col s1 m1 l1">
-              {/* Prop of component will replace this placeholder */}
-              {/* {this.props.profilePic} */}
-              <p className="messageDateTime">11:29 AM</p>
-              <a href="https://www.placeholder.com">
-                {" "}
-                <img
-                  className="circle"
-                  src="https://via.placeholder.com/40"
-                  alt=""
-                />
-              </a>
-             </div>
-            <div className="messageTextDiv col s9 m9 l9">
+          <div className="row messageContentRow">
+          <p className="messageText">{this.props.from}</p>
               {!this.state.translated ? (
-                <p className="messageText">{this.props.msgToBeTranlated}</p>
+                 
+                <p className="messageText">{this.props.text}</p>
               ) : (
                   <p className="messageText">{this.state.translatedText}</p>
                 )}
             </div>
             <div className="messageDateTimeDiv col s2 m2 l2">
               {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
-              
-
               {/* languages dropdown */}
               <Input
                 name="chosenLang"
@@ -156,9 +142,8 @@ class MessageContent extends React.Component {
                   ))
                   : "Nope"}
               </Input>
-
               {/* translate submit button */}
-              <div className="translateButtonDiv">
+              <div className="translateButtonDiv col s3 m3 l3">
                 <button
                   onClick={this.translate}
                   className="btn waves-effect waves-light translateBtn grey"
@@ -167,9 +152,13 @@ class MessageContent extends React.Component {
               </button>
               </div>
             </div>
-          </div>
         </li>
       </div>
+
+
+      // <li>
+      //   {this.props.from} - {this.props.text} - {this.props.timestamp}
+      // </li>
     );
   }
 }

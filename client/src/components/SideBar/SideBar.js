@@ -48,7 +48,7 @@ class SideBar extends React.Component {
       [name]: value
     });
   };
-// this is for direct messages
+
   handleStartMessage = () => {
     const { chosenUser } = this.state;
     if (!chosenUser) {
@@ -73,7 +73,6 @@ class SideBar extends React.Component {
         channels: [...this.state.channels, userInGroup]
       });
     }
-
   };
 
   render() {
@@ -119,7 +118,7 @@ class SideBar extends React.Component {
 
         {/* Group Message Modal */}
         <Modal
-          header="Create a new chatroom"
+          header="Start A Group Message with:"
           className="modal"
           trigger={
             <Button className="groupMessageBtn btn waves-effect waves-light grey darken-2">
@@ -139,7 +138,6 @@ class SideBar extends React.Component {
             onChange={this.handleDropdownChange}
             className="modalDrop"
           >
-           
           </Input>
           <button
             onClick={this.handleGroupMessage}
@@ -154,7 +152,7 @@ class SideBar extends React.Component {
           {this.state.groupMessageLoaded
             ? this.state.channels.length
               ? this.state.channels.map((channel, index) => (
-                  <GroupMessage key={channel} user={channel} />
+                  <GroupMessage key={channel} user={channel} channelNumber={index + 1} />
                 ))
               : null
             : null}
