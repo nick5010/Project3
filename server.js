@@ -1,109 +1,61 @@
+require("dotenv").config();
+
 const express = require("express");
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const path = require("path");
-const PORT = process.env.PORT || 3001;
+const jwt = require('jsonwebtoken');
+
+const db = require("./models");
+const passport = require("./utils/passport");
+
 const app = express();
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
-var Data = require("./controllers/userController")
-// const Data = require("./data");
-// const router = express.Router();
+app.set('port', process.env.PORT || 3001)
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
-// this is our MongoDB database
-// const dbRoute = "mongodb://<dbuser>:<dbpassword>@ds033907.mlab.com:33907/dummydb";
-
-// This is our MongoDB Database
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//   "mongodb://localhost/userdb"
-// );
-
-
-let db = mongoose.connection;
-
-db.once("open", () => console.log("YOU ARE connected to the database"));
-
-// checks if connection with the database is successful
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
-// (optional) only bade for logging and Body parser
-// Bodyparser parses the request body to be a readable json format
-app.use(bodyParser.urlencoded({extended: false}))
+// Middleware
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(logger("dev"));
+app.use(passport.initialize());
 
-// This is our get method
-// It will grab all the avaliable data from our database
-// router.get("/getData", (req, res) => {
-//   Data.find((err, data) => {
-//     if(err) return res.json({success: false, error: err });
-//     return res.json({success: true, data: data})
-//   })
-// })
+app.post("/login", (req, res) => {
+  const { userName, password } = req.body;
 
-// this is our delete method
-// router.delete("/deleteData", (req, res) => {
-//   const {id} = req.body;
-//   Data.findOneAndDelete(id, err => {
-//     if(err) return res.send(err);
-//     return res.json({success:true});
-//   });
-// });
+  db.User.findOne({ where: { userName } })
+    .then(user => {
+      if (!user)
+        return res.status(401).json({ success: false, msg: 'Authentication failed.' })
 
-// this is the create method, it will add new data into our database
-// router.post("/putData", (req, res) => {
-//   let data = new Data();
-//   const {id, message} = req.body;
+      if (password === user.password) {
+        const token = jwt.sign(user.toJSON(), process.env.CHAT_JWT_SECRET);
+        res.json({ success: true, token: 'JWT ' + token });
+      } else {
+        res.status(401).send({ success: false, msg: 'Authentication failed.' });
+      }
+    })
+    .catch(err => console.log(err));
+});
 
-//   if ((!id && id !==0) || !message) {
-//     return res.json({
-//       success: false,
-//       error: "INVALID INPUTS"
-//     });
-//   }
-//   data.message = message;
-//   data.id = id;
-//   data.save(err => {
-//     if(err) return res.json({ success: false, error: err});
-//     return res.json({success: true});
-//   });
-// });
-
-app.get("/api/users", (req, res) => {
-  
-  Data.findAll((err, data) => {
-    console.log("data: " + data)
-    if(err) return res.json({success: false, error: err });
-    return res.json({success: true, data: data})
-  })
+// API Routes
+app.get("/api/message", passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({ message: "Hello world" });
 })
 
-// Route to post our form submission to mongoDB via mongoose
-// app.post("/push", function(req, res) {
-//   // Create a new user using req.body
-//   User.create(req.body)
-//     .then(function(dbUser) {
-//       // If saved successfully, send the the new User document to the client
-//       res.json(dbUser);
-//     })
-//     .catch(function(err) {
-//       // If an error occurs, send the error to the client
-//       res.json(err);
-//     });
-// });
-
-
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+db.sequelize.sync({ force: false })
+  .then(() => {
+    app.listen(app.get('port'), () => {
+      console.log(`🌎 ==> Server now on port ${app.get('port')}!`);
+    });
+  })
+  .catch(err => console.log(err));

@@ -1,15 +1,78 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 // import NoMatch from "./pages/NoMatch";
-import Wrapper from "./components/Wrapper";
-import SignUp from "./components/SignUp";
+// import Wrapper from "./components/Wrapper";
+// import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import MainPage from "./components/MainPage";
+import Authentication from './components/Authentication';
+import Auth from './utils/auth'
 // import axios from "axios"
 import "./index.css";
 
 class App extends React.Component {
-  // state = {
+  state = {
+    token: Auth.getToken()
+  }
+
+  componentDidMount() {
+    Auth.onAuthChange(this.handleAuthChange);
+  }
+
+  handleAuthChange = token => {
+    this.setState({
+      token
+    });
+  }
+
+
+  // OG part of this component
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <header>
+            <Authentication token={this.state.token} />
+          </header>
+          {/* <Route exact path="/" component={HomePage} /> */}
+          <Route exact path="/login" render={() => <Login token={this.state.token} />} />
+          <PrivateRoute path="/dashboard" component={MainPage} token={this.state.token} />
+        </div>
+        {/* <Wrapper>
+          <Switch> */}
+            {/* <Route exact path="/signUp" component={SignUp} /> */}
+            {/* <Route exact path="/home" component={MainPage} /> */}
+            {/* <Route exact path="/" component={MainPage} /> */}
+            
+            {/* this is commented out BC i thought it might interfere with api routes */}
+            {/* <Route component={NoMatch} /> */}
+          {/* </Switch>
+        </Wrapper> */}
+      </BrowserRouter>
+    );
+  }
+}
+
+const PrivateRoute = ({ component: Component, token, ...rest }) => (
+  <Route {...rest} render={props => (
+    token ? (
+      <Component {...props} token={token} />
+    ) : (
+        <Redirect to={{
+          pathname: '/',
+          state: { from: props.location }
+        }} />
+      )
+  )} />
+);
+
+export default App;
+
+
+
+
+
+// state = {
   //   data: [],
   //   id: 0,
   //   message: null,
@@ -58,25 +121,3 @@ class App extends React.Component {
   //     }
   //   });
   // };
-
-  // OG part of this component
-  render() {
-    return (
-      <Router>
-        <Wrapper>
-          <Switch>
-            <Route exact path="/signUp" component={SignUp} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/home" component={MainPage} />
-            <Route exact path="/" component={MainPage} />
-            
-            {/* this is commented out BC i thought it might interfere with api routes */}
-            {/* <Route component={NoMatch} /> */}
-          </Switch>
-        </Wrapper>
-      </Router>
-    );
-  }
-}
-
-export default App;
