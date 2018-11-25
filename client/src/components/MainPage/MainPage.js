@@ -10,7 +10,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       userMessage: "",
-
+      messages: []
     }
   }
 
@@ -18,14 +18,19 @@ updatingMessage(msg){
   this.setState({ userMessage: msg}) 
 }
 
+handleSend = message => {
+  this.setState({
+    messages: [...this.state.messages, message]
+  });
+}
 
   render() {
     return (
       <div id="mainPageDiv">
         <SideBar />
         <NavBar />
-        <MessageInput updateMessage={this.updatingMessage.bind(this)}/>
-        <ChatLog receivedMessage={this.state.userMessage}/>
+        <MessageInput onSend={this.handleSend} updateMessage={this.updatingMessage.bind(this)}/>
+        <ChatLog messages={this.state.messages} receivedMessage={this.state.userMessage}/>
       </div>
     );
   }

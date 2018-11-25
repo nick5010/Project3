@@ -11,7 +11,6 @@ class SideBar extends React.Component {
 
     this.state = {
       nameList: ["Bob", "Mark", "Steve", "Jack", "Bill", "Rick", "Some-Guy"],
-      dummyChannels: ["Channel 1", "Channel 2", "Channel 3", "Channel 4"],
       channels: [],
       users: [],
       chosenUser: null,
@@ -135,17 +134,10 @@ class SideBar extends React.Component {
           <Input
             name="userInGroup"
             s={12}
-            type="select"
+            type="text"
             onChange={this.handleDropdownChange}
             className="modalDrop"
           >
-            {this.state.dummyChannels.length
-              ? this.state.dummyChannels.map((channel, index) => (
-                  <option value={channel} key={channel}>
-                    {channel}
-                  </option>
-                ))
-              : "Nope"}
           </Input>
           <button
             onClick={this.handleGroupMessage}
@@ -160,7 +152,7 @@ class SideBar extends React.Component {
           {this.state.groupMessageLoaded
             ? this.state.channels.length
               ? this.state.channels.map((channel, index) => (
-                  <GroupMessage key={channel} user={channel} />
+                  <GroupMessage key={channel} user={channel} channelNumber={index + 1} />
                 ))
               : null
             : null}
