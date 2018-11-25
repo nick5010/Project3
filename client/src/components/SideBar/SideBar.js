@@ -84,7 +84,7 @@ class SideBar extends React.Component {
           header="Start A New Message With:"
           className="modal"
           trigger={
-            <Button className="directMessageBtn btn waves-effect waves-light">
+            <Button className="directMessageBtn btn waves-effect waves-light grey darken-2">
               <img
                 className="messageIcon"
                 src="../../../images/directMessageIcon.png"
@@ -103,31 +103,26 @@ class SideBar extends React.Component {
           >
             {this.state.nameList.length
               ? this.state.nameList.map((person, index) => (
-                <option value={person} key={person}>
-                  {person}
-                </option>
-              ))
+                  <option value={person} key={person}>
+                    {person}
+                  </option>
+                ))
               : "Nope"}
           </Input>
           <button
             onClick={this.handleStartMessage}
-            className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
+            className="btn waves-effect waves-light light-blue lighten-2 modalStartMsg modal-action modal-close"
           >
             Start Message
-            </button>
+          </button>
         </Modal>
-
-
-
-
-
 
         {/* Group Message Modal */}
         <Modal
           header="Start A Group Message with:"
           className="modal"
           trigger={
-            <Button className="groupMessageBtn btn waves-effect waves-light">
+            <Button className="groupMessageBtn btn waves-effect waves-light grey darken-2">
               <img
                 className="messageIcon"
                 src="../../../images/groupMessageIcon.png"
@@ -146,18 +141,18 @@ class SideBar extends React.Component {
           >
             {this.state.dummyChannels.length
               ? this.state.dummyChannels.map((channel, index) => (
-                <option value={channel} key={channel}>
-                  {channel}
-                </option>
-              ))
+                  <option value={channel} key={channel}>
+                    {channel}
+                  </option>
+                ))
               : "Nope"}
           </Input>
           <button
             onClick={this.handleGroupMessage}
-            className="btn waves-effect waves-light modalStartMsg modal-action modal-close"
+            className="btn waves-effect waves-light light-blue lighten-2 modalStartMsg modal-action modal-close"
           >
             Start Message
-            </button>
+          </button>
         </Modal>
 
         <h5 className="groupMessagesHeader">Group Messages</h5>
@@ -165,8 +160,8 @@ class SideBar extends React.Component {
           {this.state.groupMessageLoaded
             ? this.state.channels.length
               ? this.state.channels.map((channel, index) => (
-                <GroupMessage key={channel} user={channel} />
-              ))
+                  <GroupMessage key={channel} user={channel} />
+                ))
               : null
             : null}
         </div>
@@ -176,8 +171,8 @@ class SideBar extends React.Component {
           {this.state.directMessageLoaded
             ? this.state.users.length
               ? this.state.users.map((dmUser, index) => (
-                <DirectMessage key={dmUser} user={dmUser} />
-              ))
+                  <DirectMessage key={dmUser} user={dmUser} />
+                ))
               : null
             : null}
         </div>
