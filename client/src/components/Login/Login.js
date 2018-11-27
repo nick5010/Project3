@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-import "./Login.css"
 
 class Login extends Component {
   state = {
@@ -48,19 +47,13 @@ class Login extends Component {
     }
 
     return (
-      <div className=" loginContainer container">
-        <div className="row">
-          <div className="col s3 m3 l3"></div>
-          <div className="col s6 m6 l6">
-            <h1 className="center-align loginHeader">Login</h1>
-            <form onSubmit={this.handleSubmit}>
-              <input className="usernameInput" type="text" name="userName" placeholder="UserName" onChange={this.handleInputChange} />
-              <input className="passwordInput" type="password" name="password" placeholder="Password" onChange={this.handleInputChange} />
-              <button className="loginButton">Login</button>
-            </form>
-          </div>
-          <div className="col s3 m3 l3"></div>
-        </div>
+      <div>
+        <h1>Login</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="userName" placeholder="UserName" onChange={this.handleInputChange} />
+          <input type="password" name="password" placeholder="Password" onChange={this.handleInputChange} />
+          <button>Login</button>
+        </form>
       </div>
     );
   }
