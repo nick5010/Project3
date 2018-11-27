@@ -5,7 +5,6 @@ import ChatLog from "../ChatLog";
 import NavBar from "../NavBar";
 import "./MainPage.css";
 
-
 class MainPage extends React.Component {
   constructor(props) {
     super(props);

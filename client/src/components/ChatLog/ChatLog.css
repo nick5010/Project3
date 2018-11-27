@@ -1,34 +1,26 @@
 .chatLog{
     width: 83%;
    margin-left: 16%;
-   height: 95%;
+   height: 59%;
+   overflow: auto;
    padding-left: 2%;
    padding-right: 2%;
    background-color: #272727;
    border-radius: 8px;
-   box-shadow: none!important;
-  }
-
-  .card-body{
-      overflow:auto;
-      height: 100%;
+   box-shadow: none!important
   }
 
 .card-text{
     padding-left: 3%;
     padding-right: 3%;
     font-size: 100%;
+   
 }
 
-.messageDiv{
-    background: #272727;
-    box-shadow: none!important;
+.messageContentInChat{
     height: 100%;
-}
-
-.emptyChatlogMessage {
-    background: #272727;
-    color:white;
+    width: 100%;
+    margin-left: 20px;
 }
 
 .translateBtn {
@@ -37,6 +29,15 @@
     width: 75%;
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
+    .chatLog{
+        width: 72%;
+       margin-left: 23%;
+       height: auto;
+       overflow: auto;
+       padding-left: 2%;
+       padding-right: 2%;
+       padding-right: 0;
+      }
 
-} */
+}

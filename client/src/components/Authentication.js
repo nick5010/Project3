@@ -9,6 +9,7 @@ const Authentication = props => (
         <div>
           <Link to='/login'>Login</Link>
         </div>
+
 );
 
 export default Authentication;
