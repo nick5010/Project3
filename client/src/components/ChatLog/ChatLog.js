@@ -3,7 +3,7 @@ import "./ChatLog.css";
 import MessageContent from "../MessageContent";
 const ChatLog = (props) => (
   <div className="card chatLog">
-    <div className="card-body">
+    <div className="messageDiv card-body">
       <ul className="messageContentInChat">
         {props.messages.length
           ? props.messages.map(message => (
@@ -14,7 +14,7 @@ const ChatLog = (props) => (
               text={message.text}
             />
           ))
-          : <li>Type a message and send it!</li>}
+          : <h5 className="emptyChatlogMessage center-align">Type a message and send it!</h5>}
       </ul>
     </div>
   </div>

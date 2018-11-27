@@ -30,24 +30,15 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <header>
-            <Authentication token={this.state.token} />
-          </header>
-          {/* <Route exact path="/" component={HomePage} /> */}
-          <Route exact path="/login" render={() => <Login token={this.state.token} />} />
-          <PrivateRoute path="/dashboard" component={MainPage} token={this.state.token} />
-        </div>
-        {/* <Wrapper>
-          <Switch> */}
-            {/* <Route exact path="/signUp" component={SignUp} /> */}
-            {/* <Route exact path="/home" component={MainPage} /> */}
-            {/* <Route exact path="/" component={MainPage} /> */}
-            
-            {/* this is commented out BC i thought it might interfere with api routes */}
-            {/* <Route component={NoMatch} /> */}
-          {/* </Switch>
-        </Wrapper> */}
+      <div className="everythingDiv">
+        <header>
+          <Authentication token={this.state.token} />
+        </header>
+        {/* <Route exact path="/" component={HomePage} /> */}
+        <Route exact path="/login" render={() => <Login token={this.state.token} />} />
+        <PrivateRoute path="/dashboard" component={MainPage} token={this.state.token} />
+      </div>
+
       </BrowserRouter>
     );
   }

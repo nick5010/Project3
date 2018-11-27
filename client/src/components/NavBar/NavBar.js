@@ -1,6 +1,9 @@
 import React from "react";
 import "./NavBar.css";
 import Clock from 'react-live-clock';
+import Auth from "../../utils/auth"
+// import Authentication from "../Authentication"
+
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -8,18 +11,16 @@ class NavBar extends React.Component {
     this.state = {
       videoURL: "../public/images/Background_08.mov"
     }
-  }
+  };
 
   render() {
     return (
       <nav className="nav-extended header">
         <div className="nav-wrapper">
-          <i className="settings fa fa-cog fa-spin"></i>
-          
-
-          <span className="comet">Comet</span>
+        <span className="comet">Comet</span>
           <Clock className="clock" format={'dddd, h:mm:ss A'} ticking={true} timezone={'US/Eastern'} />
-          <p className="shortMsg">A corporate messaging app</p>
+          <button className="logoutBtn" onClick={Auth.logout}>Log Out</button>
+          <br />
         </div>
         <div className="nav-content">
         </div>

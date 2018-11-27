@@ -18,3 +18,8 @@ body {
 .hiddenDiv{
   display:none !important;
 }
+
+.everythingDiv {
+  height: 100%;
+  min-height:100%;
+}

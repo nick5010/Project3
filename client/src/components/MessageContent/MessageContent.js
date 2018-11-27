@@ -112,46 +112,46 @@ class MessageContent extends React.Component {
       <div className="messageContentParent">
         <li className="messageContentDiv">
           <div className="row messageContentRow">
-          <p className="messageText">{this.props.from}</p>
-              {!this.state.translated ? (
-                 
-                <p className="messageText">{this.props.text}</p>
-              ) : (
-                  <p className="messageText">{this.state.translatedText}</p>
-                )}
-            </div>
-            <div className="messageDateTimeDiv col s2 m2 l2">
-              {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
-              {/* languages dropdown */}
-              <Input
-                name="chosenLang"
-                s={12}
-                type="select"
-                onChange={this.languageSelect}
-                className="langDrop"
+            <p className="messageSender">{this.props.from}</p>
+            {!this.state.translated ? (
+
+              <p className="messageText">{this.props.text}</p>
+            ) : (
+                <p className="messageText">{this.state.translatedText}</p>
+              )}
+          </div>
+          <div className="messageDateTimeDiv col s2 m2 l2">
+            {/* 11:29 AM / 09-20-18 {formatDate(props.date)} */}
+            {/* languages dropdown */}
+            <Input
+              name="chosenLang"
+              s={12}
+              type="select"
+              onChange={this.languageSelect}
+              className="langDrop"
+            >
+              {this.langList.length
+                ? this.langList.map((languageObj, index) => (
+                  <option
+                    name={languageObj.name}
+                    value={languageObj.value}
+                    key={index}
+                  >
+                    {languageObj.name}
+                  </option>
+                ))
+                : "Nope"}
+            </Input>
+            {/* translate submit button */}
+            <div className="translateButtonDiv col s3 m3 l3">
+              <button
+                onClick={this.translate}
+                className="btn waves-effect waves-light translateBtn grey"
               >
-                {this.langList.length
-                  ? this.langList.map((languageObj, index) => (
-                    <option
-                      name={languageObj.name}
-                      value={languageObj.value}
-                      key={index}
-                    >
-                      {languageObj.name}
-                    </option>
-                  ))
-                  : "Nope"}
-              </Input>
-              {/* translate submit button */}
-              <div className="translateButtonDiv col s3 m3 l3">
-                <button
-                  onClick={this.translate}
-                  className="btn waves-effect waves-light translateBtn grey"
-                >
-                  Translate Text
+                Translate Text
               </button>
-              </div>
             </div>
+          </div>
         </li>
       </div>
 
