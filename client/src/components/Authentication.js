@@ -7,7 +7,6 @@ const Authentication = props => (
   props.token
     ? <div onClick={() => Auth.logout()}>Logout</div> :
         <div>
-          <h1>Welcome</h1>
           <Link to='/login'>Login</Link>
         </div>
 );
