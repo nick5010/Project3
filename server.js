@@ -41,6 +41,16 @@ app.post("/login", (req, res) => {
     .catch(err => console.log(err));
 });
 
+// app.post('/signUp', (req, res) => {
+//   connection.query('INSERT INTO User Set ?', req.body,
+//     function (err, result) {
+//       if (err) throw err;
+//       res.send('User added to database with id: ' + result.insertId)
+//     })
+// })
+
+
+
 // API Routes
 app.get("/api/message", passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({ message: "Hello world" });

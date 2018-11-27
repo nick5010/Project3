@@ -27,7 +27,7 @@ class Login extends Component {
 
     fetch('/login', {
       method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      body: JSON.stringify(data), // data can be `string` or {object}
       headers: {
         'Content-Type': 'application/json'
       }
