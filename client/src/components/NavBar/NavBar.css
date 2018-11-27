@@ -9,6 +9,11 @@
     box-shadow: none!important;
 }
 
+
+.nav-wrapper{
+  width: 100%;
+}
+
 .comet {
   font-size: 400%;
   padding-top: 2%;
@@ -21,31 +26,27 @@
   margin-bottom: auto;
   font-family: 'Quicksand', sans-serif;
 }
-.settings {
-  font-size: 200%;
+.logoutBtn {
+  font-size: 130%;
   float: right;
   margin-right: 1%;
   transition: .3s;
+  color: black;
+  border-radius: 8px;
 }
 
 .settings:hover{
-  box-shadow: 0 11 11px green; 
+  box-shadow: 0 11 11px black; 
 }
 
 .clock{
   font-family: 'Quicksand', sans-serif;
   font-size: 180%;
-  margin-left: 50%;
+  margin-left: 40%;
+  margin-right: 3%;
   margin-top: 0%;
 }
 
-@media only screen and (max-width: 600px) {
-  .header {
-    width: 76%;
-    margin-left: 21%;
-  }
-  nav i {
-    height: auto;
-  }
-}
+/* @media only screen and (max-width: 600px) {
+} */
 
