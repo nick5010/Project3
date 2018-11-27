@@ -27,6 +27,7 @@
 
 .directMessages {
   border: #272727;
+  font-size: 150%;
 }
 
 #mainRow {
@@ -54,6 +55,7 @@
   border-radius: 4px;
   font-family: 'Quicksand', sans-serif;
   margin-top: 49.5%;
+  font-size: 150%;
 }
 
 

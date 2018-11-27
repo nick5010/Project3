@@ -65,7 +65,6 @@ const PrivateRoute = ({ component: Component, token, ...rest }) => (
       )
   )} />
 );
-
 export default App;
 
 

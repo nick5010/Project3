@@ -8,8 +8,10 @@ class GroupMessage extends React.Component {
     };
   }
 
+
+
   render() {
-    return <div className="userInGroup">Channel {this.props.channelNumber} <br></br>{this.props.user}</div>;
+    return <div className="userInGroup">{this.props.user}</div>;
   }
 }
 

@@ -112,7 +112,7 @@ class MessageContent extends React.Component {
       <div className="messageContentParent">
         <li className="messageContentDiv">
           <div className="row messageContentRow">
-          <p className="messageText">{this.props.from}</p>
+          <p className="messageSender">{this.props.from}</p>
               {!this.state.translated ? (
                  
                 <p className="messageText">{this.props.text}</p>

@@ -14,7 +14,7 @@ const ChatLog = (props) => (
               text={message.text}
             />
           ))
-          : <li>Type a message and send it!</li>}
+          : <li className="defaultMessage">Type a message and send it!</li>}
       </ul>
     </div>
   </div>

@@ -1,7 +1,8 @@
+
 .chatLog{
     width: 83%;
    margin-left: 16%;
-   height: 59%;
+   height: 100%;
    overflow: auto;
    padding-left: 2%;
    padding-right: 2%;
@@ -14,19 +15,19 @@
     padding-left: 3%;
     padding-right: 3%;
     font-size: 100%;
-   
+    /* overflow: auto; */
 }
 
 .messageContentInChat{
     height: 100%;
-    width: 100%;
-    margin-left: 20px;
+}
+.card-body{
+    max-height: 415px;
+   
 }
 
-.translateBtn {
-    margin-left: 10%;
-    margin-bottom: 1%;
-    width: 75%;
+.defaultMessage{
+    color: white;
 }
 
 @media only screen and (max-width: 600px) {

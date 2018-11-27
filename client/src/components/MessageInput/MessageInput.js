@@ -24,7 +24,7 @@ class MessageInput extends React.Component {
 
   sendMethod = event => {
     event.preventDefault();
-
+   
     const newMessage = {
       timestamp: Date.now(),
       from: "Jacob",
@@ -35,7 +35,7 @@ class MessageInput extends React.Component {
     this.setState({ message: "" })
 
   };
-
+  
   // handleSend = () => {
   //   this.props.onSend({
   //     timestamp: Date.now(),
